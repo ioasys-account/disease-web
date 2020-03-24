@@ -1,6 +1,15 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import AuthPresentation from '../../componentes/presentation/Auth';
+import { Creators as AuthActions } from '../../store/ducks/authReducer';
 
 export default function Auth() {
-  return <AuthPresentation />;
+  const dispatch = useDispatch();
+
+  const requestAuthAuthentication = (payload) => {
+    dispatch(AuthActions.authRequest(payload));
+  };
+  return (
+    <AuthPresentation requestAuthAuthentication={requestAuthAuthentication} />
+  );
 }

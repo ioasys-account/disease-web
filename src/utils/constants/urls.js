@@ -1,10 +1,11 @@
 const urls = {
   ROUTES: {
     APP: '/',
-    ADMIN: '/admin',
+    HOME: '/home',
   },
   LINKS: {
     APP: '/',
+    HOME: '/home',
   },
 };
 

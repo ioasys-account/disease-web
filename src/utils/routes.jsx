@@ -5,7 +5,7 @@ import { createBrowserHistory } from 'history';
 import isAuthenticated from './isAuthenticated';
 import urls from './constants/urls';
 import Auth from '../containers/Auth';
-import AdminContainer from '../containers/Admin';
+import Home from '../containers/Home';
 
 export const history = createBrowserHistory();
 
@@ -26,7 +26,7 @@ const Routes = () => (
   <ConnectedRouter history={history}>
     <Switch>
       <Route exact path={urls.ROUTES.APP} component={Auth} />
-      <Route path={urls.ROUTES.ADMIN} exact component={AdminContainer} />
+      <PrivateRoute exact path={urls.ROUTES.HOME} component={Home} />
     </Switch>
   </ConnectedRouter>
 );

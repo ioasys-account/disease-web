@@ -6,7 +6,7 @@ import TextFieldInput from '../../core/TextFieldInput';
 import ButtonDefault from '../../core/ButtonDefault';
 import CoronaImg from '../../../assets/img/corona.png';
 
-export default function Auth() {
+export default function Auth({ requestAuthAuthentication }) {
   return (
     <Body>
       <Container>
@@ -14,7 +14,7 @@ export default function Auth() {
         <TextFieldInput label="Login" fullWidth />
         <TextFieldInput label="Senha" fullWidth />
         <SubmitRow>
-          <ButtonDefault value="Login" />
+          <ButtonDefault onClick={requestAuthAuthentication} value="Login" />
         </SubmitRow>
       </Container>
     </Body>
