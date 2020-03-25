@@ -1,87 +1,112 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
+import Hidden from '@material-ui/core/Hidden';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import PostAdd from '@material-ui/icons/PostAdd';
-import MenuIcon from '@material-ui/icons/Menu';
-import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
-import LogoIcon from './icons';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { LogoIcon } from './stylesHome';
+import ImgIcon from '../../assets/img/logo.png';
 
-const useStyles = makeStyles({
+const drawerWidth = 256;
+
+const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: '#FFFFFF',
+    display: 'flex',
   },
-  list: {
-    width: 250,
+  drawer: {
+    [theme.breakpoints.up('sm')]: {
+      width: drawerWidth,
+      flexShrink: 0,
+    },
   },
-  fullList: {
-    width: 'auto',
+  toolbar: theme.mixins.toolbar,
+  drawerPaper: {
+    width: drawerWidth,
   },
-});
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
+  },
+}));
 
-export default function Home() {
+export default function Home(props) {
+  const { container } = props;
   const classes = useStyles();
-  const [state, setState] = React.useState({
-    left: true,
-  });
+  const theme = useTheme();
+  const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (
-      event.type === 'keydown'
-      && (event.key === 'Tab' || event.key === 'Shift')
-    ) {
-      return;
-    }
-    setState({ ...state, [anchor]: open });
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
   };
 
-  const list = () => (
-    <List>
-      <LogoIcon />
-      <ListItem button key="initial">
-        {/* <ListItemIcon>
-          <PostAdd />
-        </ListItemIcon> */}
-        <ListItemText primary="Inicial" />
-      </ListItem>
-      <ListItem button key="user">
-        {/* <PersonOutlineIcon /> */}
-        <ListItemText primary="Cidadãos" />
-      </ListItem>
-    </List>
+  const drawer = (
+    <div>
+      <LogoIcon src={ImgIcon} />
+      <div className={classes.toolbar} />
+
+      <Divider />
+      <List>
+        {['Inicial', 'Pessoas', 'Médicos'].map((text) => (
+          <ListItem button key={text}>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {['Doenças', 'Pré-condições', 'Sintomas'].map((text) => (
+          <ListItem button key={text}>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+    </div>
   );
 
   return (
-    <div>
-      <React.Fragment key="left">
-        <Drawer
-          anchor="left"
-          open={state.left}
-          onClose={toggleDrawer('left', true)}
-          className={classes.root}
-        >
-          {list('left')}
-        </Drawer>
-      </React.Fragment>
-      {/* <AppBar position="static" color="transparent">
-        <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-            onClick={toggleDrawer('left', true)}
+    <div className={classes.root}>
+      <CssBaseline />
+      <nav className={classes.drawer} aria-label="mailbox folders">
+        <Hidden smUp implementation="css">
+          <Drawer
+            container={container}
+            variant="temporary"
+            anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            classes={{
+              paper: classes.drawerPaper,
+            }}
+            ModalProps={{
+              keepMounted: true,
+            }}
           >
-            <MenuIcon />
-          </IconButton>
-        </Toolbar>
-      </AppBar> */}
+            {drawer}
+          </Drawer>
+        </Hidden>
+        <Hidden xsDown implementation="css">
+          <Drawer
+            classes={{
+              paper: classes.drawerPaper,
+            }}
+            variant="permanent"
+            open
+          >
+            {drawer}
+          </Drawer>
+        </Hidden>
+      </nav>
+      <main className={classes.content}>
+        <div className={classes.toolbar} />
+      </main>
     </div>
   );
 }
+
+Home.propTypes = {
+  container: PropTypes.node.isRequired,
+};
