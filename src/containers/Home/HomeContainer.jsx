@@ -11,14 +11,14 @@ import IconButton from '@material-ui/core/IconButton';
 import PostAdd from '@material-ui/icons/PostAdd';
 import MenuIcon from '@material-ui/icons/Menu';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
+import LogoIcon from './icons';
 
 const useStyles = makeStyles({
+  root: {
+    backgroundColor: '#FFFFFF',
+  },
   list: {
     width: 250,
-  },
-  textList: {
-    textAlign: 'center',
-    paddingRight: 15,
   },
   fullList: {
     width: 'auto',
@@ -28,7 +28,7 @@ const useStyles = makeStyles({
 export default function Home() {
   const classes = useStyles();
   const [state, setState] = React.useState({
-    left: false,
+    left: true,
   });
 
   const toggleDrawer = (anchor, open) => (event) => {
@@ -43,15 +43,16 @@ export default function Home() {
 
   const list = () => (
     <List>
-      <ListItem button key="publication">
-        <ListItemIcon>
+      <LogoIcon />
+      <ListItem button key="initial">
+        {/* <ListItemIcon>
           <PostAdd />
-        </ListItemIcon>
-        <ListItemText primary="Publicações" />
+        </ListItemIcon> */}
+        <ListItemText primary="Inicial" />
       </ListItem>
       <ListItem button key="user">
-        <PersonOutlineIcon />
-        <ListItemText primary="Perfil" className={classes.textList} />
+        {/* <PersonOutlineIcon /> */}
+        <ListItemText primary="Cidadãos" />
       </ListItem>
     </List>
   );
@@ -62,12 +63,13 @@ export default function Home() {
         <Drawer
           anchor="left"
           open={state.left}
-          onClose={toggleDrawer('left', false)}
+          onClose={toggleDrawer('left', true)}
+          className={classes.root}
         >
           {list('left')}
         </Drawer>
       </React.Fragment>
-      <AppBar position="static">
+      {/* <AppBar position="static" color="transparent">
         <Toolbar>
           <IconButton
             edge="start"
@@ -79,7 +81,7 @@ export default function Home() {
             <MenuIcon />
           </IconButton>
         </Toolbar>
-      </AppBar>
+      </AppBar> */}
     </div>
   );
 }
