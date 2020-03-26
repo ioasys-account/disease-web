@@ -8,7 +8,9 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { LogoIcon } from './stylesHome';
+import { TitleContainer, LogoIcon } from './stylesHome';
+import ListTitle from '../../componentes/core/ListTitle';
+
 import ImgIcon from '../../assets/img/logo.png';
 
 const drawerWidth = 256;
@@ -16,6 +18,10 @@ const drawerWidth = 256;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    fontSize: 14,
+  },
+  label: {
+    fontSize: 14,
   },
   drawer: {
     [theme.breakpoints.up('sm')]: {
@@ -32,7 +38,6 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(3),
   },
 }));
-
 export default function Home(props) {
   const { container } = props;
   const classes = useStyles();
@@ -50,15 +55,29 @@ export default function Home(props) {
 
       <Divider />
       <List>
-        {['Inicial', 'Pessoas', 'Médicos'].map((text) => (
+        {['Inicial', 'Perfis', 'Médicos'].map((text) => (
           <ListItem button key={text}>
             <ListItemText primary={text} />
           </ListItem>
         ))}
       </List>
       <Divider />
+      <TitleContainer>
+        <ListTitle title="Saúde" />
+      </TitleContainer>
       <List>
-        {['Doenças', 'Pré-condições', 'Sintomas'].map((text) => (
+        {['Condições Pré-existentes', 'Sintomas'].map((text) => (
+          <ListItem button key={text}>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <TitleContainer>
+        <ListTitle title="Usuários" />
+      </TitleContainer>
+      <List>
+        {['Condições Pré-existentes', 'Sintomas'].map((text) => (
           <ListItem button key={text}>
             <ListItemText primary={text} />
           </ListItem>
