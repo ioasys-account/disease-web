@@ -77,7 +77,7 @@ export default function Home(props) {
         <ListTitle title="Usuários" />
       </TitleContainer>
       <List>
-        {['Condições Pré-existentes', 'Sintomas'].map((text) => (
+        {['Administradores'].map((text) => (
           <ListItem button key={text}>
             <ListItemText primary={text} />
           </ListItem>
