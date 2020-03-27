@@ -11,7 +11,7 @@ export default function Auth({ requestAuthAuthentication }) {
     <Body>
       <Container>
         <ImgLogo src={CoronaImg} />
-        <TextFieldInput label="Login" fullWidth />
+        <TextFieldInput label="Email" fullWidth />
         <TextFieldInput label="Senha" fullWidth />
         <SubmitRow>
           <ButtonDefault onClick={requestAuthAuthentication} value="Login" />
