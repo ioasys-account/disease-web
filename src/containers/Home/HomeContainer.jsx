@@ -18,10 +18,19 @@ const drawerWidth = 256;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    fontSize: 14,
-  },
-  label: {
-    fontSize: 14,
+    '& .MuiListItemText-primary': {
+      fontSize: 14,
+      color: 'rgba(0, 0, 0, 0.87)',
+      paddingLeft: 28,
+      '&:hover': {
+        color: '#CC3632',
+      },
+    },
+    '& .MuiListItem-gutters': {
+      '&:hover': {
+        backgroundColor: 'rgba(204, 54, 50, 0.1)',
+      },
+    },
   },
   drawer: {
     [theme.breakpoints.up('sm')]: {
