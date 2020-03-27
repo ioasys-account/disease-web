@@ -1,13 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
-@import url('https://fonts.google.com/specimen/Source+Sans+Pro');
   * {    
     margin: 0;
     padding: 0;
     outline: none !important;
     box-sizing: border-box;
-    font-family: Roboto;
   }
 
   html, body, #root {

@@ -1,10 +1,10 @@
 import React from 'react';
+import TextFieldInput from 'components/core/TextFieldInput';
+import ButtonDefault from 'components/core/ButtonDefault';
+import CoronaImg from 'assets/img/corona.png';
 import {
   Container, Body, SubmitRow, ImgLogo,
 } from './stylesAuth';
-import TextFieldInput from '../../core/TextFieldInput';
-import ButtonDefault from '../../core/ButtonDefault';
-import CoronaImg from '../../../assets/img/corona.png';
 
 export default function Auth({ requestAuthAuthentication }) {
   return (
