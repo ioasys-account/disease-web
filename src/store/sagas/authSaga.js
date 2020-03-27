@@ -1,7 +1,7 @@
 import { takeLatest, put } from 'redux-saga/effects';
-import { Types } from '../ducks/authReducer';
-import { history } from '../../utils/routes';
-import urls from '../../utils/constants/urls';
+import { Types } from 'store/ducks/authReducer';
+import { history } from 'utils/routes';
+import urls from 'utils/constants/urls';
 
 function* requestAuth({ payload }) {
   try {

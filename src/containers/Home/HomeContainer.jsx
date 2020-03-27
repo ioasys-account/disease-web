@@ -8,10 +8,10 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { TitleContainer, LogoIcon } from './stylesHome';
-import ListTitle from '../../componentes/core/ListTitle';
+import ListTitle from 'components/core/ListTitle';
 
-import ImgIcon from '../../assets/img/logo.png';
+import ImgIcon from 'assets/img/logo.png';
+import { TitleContainer, LogoIcon } from './stylesHome';
 
 const drawerWidth = 256;
 
