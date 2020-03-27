@@ -22,5 +22,15 @@ module.exports = {
     'react',
   ],
   rules: {
-  },
+  }, 
+  settings: {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      node: {
+        paths: ["src"]
+      }
+    }
+  }
 };
