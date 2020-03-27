@@ -2,10 +2,10 @@ import React from 'react';
 import { Route, Switch, Redirect } from 'react-router';
 import { ConnectedRouter } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
+import urls from 'utils/constants/urls';
+import Auth from 'containers/Auth';
+import Home from 'containers/Home';
 import isAuthenticated from './isAuthenticated';
-import urls from './constants/urls';
-import Auth from '../containers/Auth';
-import Home from '../containers/Home';
 
 export const history = createBrowserHistory();
 
