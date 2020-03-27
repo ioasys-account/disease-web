@@ -14,17 +14,12 @@ const Menu = () => {
   const materialStyles = makeStyles({
     root: {
       display: 'flex',
-      '& .MuiListItemText-primary': {
-        fontSize: 14,
-        color: 'rgba(0, 0, 0, 0.87)',
-        padding: '0 28px',
-        '&:hover': {
-          color: '#CC3632',
-        },
-      },
       '& .MuiListItem-gutters': {
+        fontSize: 14,
+        paddingLeft: 28,
         '&:hover': {
           backgroundColor: 'rgba(204, 54, 50, 0.1)',
+          color: '#CC3632',
         },
       },
     },
@@ -65,7 +60,11 @@ const Menu = () => {
               </TitleContainer>
             )}
             {items.map(({ label, link }) => (
-              <ListItem key={label} value={label} selected={label === activeLink}>
+              <ListItem
+                key={label}
+                value={label}
+                selected={label === activeLink}
+              >
                 <LinkCustom route={link}>{label}</LinkCustom>
               </ListItem>
             ))}
