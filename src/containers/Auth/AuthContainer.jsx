@@ -1,7 +1,7 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import AuthPresentation from '../../componentes/presentation/Auth';
 import { Creators as AuthActions } from '../../store/ducks/authReducer';
-import { useDispatch } from 'react-redux';
 
 export default function Auth() {
   const dispatch = useDispatch();

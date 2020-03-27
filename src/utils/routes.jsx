@@ -6,20 +6,19 @@ import isAuthenticated from './isAuthenticated';
 import urls from './constants/urls';
 import Auth from '../containers/Auth';
 import Home from '../containers/Home';
+
 export const history = createBrowserHistory();
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
-    render={(props) =>
-      isAuthenticated() ? (
-        <Component {...props} />
-      ) : (
-        <Redirect
-          to={{ pathname: urls.ROUTES.LOGIN, state: { from: props.location } }}
-        />
-      )
-    }
+    render={(props) => (isAuthenticated() ? (
+      <Component {...props} />
+    ) : (
+      <Redirect
+        to={{ pathname: urls.ROUTES.LOGIN, state: { from: props.location } }}
+      />
+    ))}
   />
 );
 
