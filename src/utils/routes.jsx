@@ -6,6 +6,7 @@ import isAuthenticated from './isAuthenticated';
 import urls from './constants/urls';
 import Auth from '../containers/Auth';
 import Map from '../containers/Map';
+import Home from '../containers/Home';
 
 export const history = createBrowserHistory();
 
@@ -29,6 +30,7 @@ const Routes = () => (
     <Switch>
       <Route exact path={urls.ROUTES.APP} component={Auth} />
       <Route exact path={urls.ROUTES.MAP} component={Map} />
+      <PrivateRoute exact path={urls.ROUTES.HOME} component={Home} />
     </Switch>
   </ConnectedRouter>
 );
