@@ -1,6 +1,7 @@
 const urls = {
   ROUTES: {
     APP: '/',
+    MAP: '/maps',
   },
   LINKS: {
     APP: '/',
