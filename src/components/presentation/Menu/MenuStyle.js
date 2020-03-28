@@ -10,8 +10,6 @@ export const LogoIcon = styled.img`
 
 export const TitleContainer = styled.div`
   position: relative;
-  height: 20px;
-  margin-left: 16px;
-  margin-right: 16px;
-  margin-top: 12px;
+  height: 20px;  
+  margin: 12px 16px 20px 16px;
 `;

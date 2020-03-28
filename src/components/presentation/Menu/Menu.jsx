@@ -17,6 +17,12 @@ const Menu = () => {
       '& .MuiListItem-gutters': {
         fontSize: 14,
         paddingLeft: 28,
+        fontWeight: 500,
+        lineHeight: '30px',
+        '&:first-child': {
+          backgroundColor: 'rgba(204, 54, 50, 0.1)',
+          color: '#CC3632',
+        },
         '&:hover': {
           backgroundColor: 'rgba(204, 54, 50, 0.1)',
           color: '#CC3632',
@@ -68,7 +74,7 @@ const Menu = () => {
                 <LinkCustom route={link}>{label}</LinkCustom>
               </ListItem>
             ))}
-            <Divider />
+            <Divider light />
           </List>
         ))}
       </Drawer>
