@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Creators as AuthActions } from 'store/ducks/authReducer';
 import {
@@ -10,10 +10,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import urls from 'utils/constants/urls';
 import LinkCustom from 'components/core/LinkCustom';
 import ImgIcon from 'assets/img/logo.png';
-import { TitleContainer, LogoIcon } from './MenuStyle';
+import {
+  TitleContainer, LogoIcon, UserNameContainer, Container,
+} from './MenuStyle';
 
 const Menu = () => {
   const [activeLink, setActiveLink] = useState('Inicial');
+  const [userName, setUsername] = useState('José Eustáquio');
   const dispatch = useDispatch();
   const materialStyles = makeStyles({
     root: {
@@ -38,6 +41,13 @@ const Menu = () => {
   const logoutUser = (payload) => {
     dispatch(AuthActions.authLogOut(payload));
   };
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+      setUsername({ userName: user.fullName });
+    }
+  }, []);
 
   const menuItems = [
     {
@@ -65,7 +75,14 @@ const Menu = () => {
     <nav className={materialStyles.root}>
       <Drawer classes={materialStyles.drawerPaper} variant="permanent" open>
         <LogoIcon src={ImgIcon} />
-        <LogoutLink logoutUser={logoutUser} />
+        <Container>
+          <UserNameContainer>
+            <span>
+              {userName}
+            </span>
+          </UserNameContainer>
+          <LogoutLink logoutUser={logoutUser} />
+        </Container>
         <Divider />
         {menuItems.map(({ title, items }) => (
           <List key={title}>
