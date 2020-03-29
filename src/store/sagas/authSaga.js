@@ -14,6 +14,16 @@ function* requestAuth({ payload }) {
   }
 }
 
+function* logoutUser(payload) {
+  try {
+    history.push(urls.ROUTES.APP);
+  } catch (errors) {
+    yield put({ type: Types.AUTH_LOG_OUT_FAIL, errors });
+  }
+}
+
+
 export function* watcherSaga() {
   yield takeLatest(Types.AUTH_REQUEST, requestAuth);
+  yield takeLatest(Types.AUTH_LOG_OUT, logoutUser);
 }

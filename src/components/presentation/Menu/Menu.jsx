@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Creators as AuthActions } from 'store/ducks/authReducer';
 import {
   Divider, Drawer, List, ListItem,
 } from '@material-ui/core';
 import ListTitle from 'components/core/ListTitle';
+import LogoutLink from 'components/presentation/LogoutLink';
 import { makeStyles } from '@material-ui/core/styles';
 import urls from 'utils/constants/urls';
 import LinkCustom from 'components/core/LinkCustom';
@@ -11,6 +14,7 @@ import { TitleContainer, LogoIcon } from './MenuStyle';
 
 const Menu = () => {
   const [activeLink, setActiveLink] = useState('Inicial');
+  const dispatch = useDispatch();
   const materialStyles = makeStyles({
     root: {
       display: 'flex',
@@ -30,6 +34,10 @@ const Menu = () => {
       },
     },
   })();
+
+  const logoutUser = (payload) => {
+    dispatch(AuthActions.authLogOut(payload));
+  };
 
   const menuItems = [
     {
@@ -57,6 +65,7 @@ const Menu = () => {
     <nav className={materialStyles.root}>
       <Drawer classes={materialStyles.drawerPaper} variant="permanent" open>
         <LogoIcon src={ImgIcon} />
+        <LogoutLink logoutUser={logoutUser} route={urls.LINKS.APP} />
         <Divider />
         {menuItems.map(({ title, items }) => (
           <List key={title}>
@@ -74,7 +83,7 @@ const Menu = () => {
                 <LinkCustom route={link}>{label}</LinkCustom>
               </ListItem>
             ))}
-            <Divider light />
+            <Divider />
           </List>
         ))}
       </Drawer>
