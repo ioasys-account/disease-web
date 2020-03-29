@@ -65,7 +65,7 @@ const Menu = () => {
     <nav className={materialStyles.root}>
       <Drawer classes={materialStyles.drawerPaper} variant="permanent" open>
         <LogoIcon src={ImgIcon} />
-        <LogoutLink logoutUser={logoutUser} route={urls.LINKS.APP} />
+        <LogoutLink logoutUser={logoutUser} />
         <Divider />
         {menuItems.map(({ title, items }) => (
           <List key={title}>

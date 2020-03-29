@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 import { takeLatest, put } from 'redux-saga/effects';
 import { Types } from 'store/ducks/authReducer';
 import { history } from 'utils/routes';
@@ -14,7 +15,7 @@ function* requestAuth({ payload }) {
   }
 }
 
-function* logoutUser(payload) {
+function* logoutUser() {
   try {
     history.push(urls.ROUTES.APP);
   } catch (errors) {

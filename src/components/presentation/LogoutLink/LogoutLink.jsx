@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
-import { Container } from './LogoutStyle';
+import { ContainerLink } from './LogoutStyle';
 
 const LogoutLink = ({ route, logoutUser, history }) => {
   const handleOnKeyUp = (keyCode) => {
@@ -10,14 +10,10 @@ const LogoutLink = ({ route, logoutUser, history }) => {
     }
   };
   return (
-    <Container>
+    <ContainerLink>
       <span
         role="button"
         tabIndex={0}
-        style={{
-          color: '#808080',
-          cursor: 'pointer',
-        }}
         onKeyUp={(e) => {
           handleOnKeyUp(e.keyCode);
         }}
@@ -25,12 +21,13 @@ const LogoutLink = ({ route, logoutUser, history }) => {
       >
         Sair
       </span>
-    </Container>
+    </ContainerLink>
   );
 };
 
 LogoutLink.propTypes = {
   route: PropTypes.string.isRequired,
+  logoutUser: PropTypes.string.isRequired,
   history: PropTypes.shape({ push: PropTypes.func }).isRequired,
 };
 
