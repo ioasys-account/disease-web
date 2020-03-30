@@ -5,6 +5,11 @@ import { createBrowserHistory } from 'history';
 import urls from 'utils/constants/urls';
 import Auth from 'containers/Auth';
 import Home from 'containers/Home';
+import Profile from 'containers/Profile';
+import Doctors from 'containers/Doctors';
+import Conditions from 'containers/Conditions';
+import Symptoms from 'containers/Symptoms';
+import Admins from 'containers/Admins';
 import isAuthenticated from './isAuthenticated';
 
 export const history = createBrowserHistory();
@@ -27,6 +32,11 @@ const Routes = () => (
     <Switch>
       <Route exact path={urls.ROUTES.APP} component={Auth} />
       <PrivateRoute exact path={urls.ROUTES.HOME} component={Home} />
+      <PrivateRoute exact path={urls.ROUTES.PROFILE} component={Profile} />
+      <PrivateRoute exact path={urls.ROUTES.DOCTORS} component={Doctors} />
+      <PrivateRoute exact path={urls.ROUTES.CONDITIONS} component={Conditions} />
+      <PrivateRoute exact path={urls.ROUTES.SYMPTOMS} component={Symptoms} />
+      <PrivateRoute exact path={urls.ROUTES.ADMINS} component={Admins} />
     </Switch>
   </ConnectedRouter>
 );
