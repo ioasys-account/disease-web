@@ -26,14 +26,14 @@ const Menu = () => {
         paddingLeft: 28,
         fontWeight: 500,
         lineHeight: '30px',
-        '&:first-child': {
-          backgroundColor: 'rgba(204, 54, 50, 0.1)',
-          color: '#CC3632',
-        },
         '&:hover': {
           backgroundColor: 'rgba(204, 54, 50, 0.1)',
           color: '#CC3632',
         },
+      },
+      '& .Mui-selected': {
+        backgroundColor: 'rgba(204, 54, 50, 0.1)',
+        color: '#CC3632',
       },
     },
   })();
@@ -48,6 +48,12 @@ const Menu = () => {
       setUsername({ userName: user.fullName });
     }
   }, []);
+
+  const handleOnclick = (link) => {
+    if (link !== activeLink) {
+      setActiveLink(!activeLink);
+    }
+  };
 
   const menuItems = [
     {
@@ -96,6 +102,10 @@ const Menu = () => {
                 key={label}
                 value={label}
                 selected={label === activeLink}
+                variant="menu"
+                onClick={(e) => {
+                  handleOnclick(e.value);
+                }}
               >
                 <LinkCustom route={link}>{label}</LinkCustom>
               </ListItem>
