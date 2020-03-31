@@ -2,8 +2,7 @@
 import styled from 'styled-components';
 
 export const ContainerLink = styled.div`
-  height: 26px;  
-  /* margin:15px 15px 16px 209px; */
+  height: 26px;    
   margin-right: 15px;
   span{
     color: #808080;

@@ -15,7 +15,6 @@ import {
 } from './MenuStyle';
 
 const Menu = () => {
-  const [activeLink, setActiveLink] = useState('Inicial');
   const [userName, setUsername] = useState('José Eustáquio');
   const dispatch = useDispatch();
   const materialStyles = makeStyles({
@@ -31,10 +30,6 @@ const Menu = () => {
           color: '#CC3632',
         },
       },
-      '& .Mui-selected': {
-        backgroundColor: 'rgba(204, 54, 50, 0.1)',
-        color: '#CC3632',
-      },
     },
   })();
 
@@ -48,12 +43,6 @@ const Menu = () => {
       setUsername({ userName: user.fullName });
     }
   }, []);
-
-  const handleOnclick = (link) => {
-    if (link !== activeLink) {
-      setActiveLink(!activeLink);
-    }
-  };
 
   const menuItems = [
     {
@@ -101,11 +90,7 @@ const Menu = () => {
               <ListItem
                 key={label}
                 value={label}
-                selected={label === activeLink}
                 variant="menu"
-                onClick={(e) => {
-                  handleOnclick(e.value);
-                }}
               >
                 <LinkCustom route={link}>{label}</LinkCustom>
               </ListItem>
