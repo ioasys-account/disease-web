@@ -9,6 +9,7 @@ export default function Auth() {
   const requestAuthAuthentication = (payload) => {
     dispatch(AuthActions.authRequest(payload));
   };
+
   return (
     <AuthPresentation requestAuthAuthentication={requestAuthAuthentication} />
   );

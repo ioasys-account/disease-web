@@ -1,7 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
-
   * {    
     margin: 0;
     padding: 0;
@@ -34,12 +33,5 @@ export default createGlobalStyle`
 
   html{
     scroll-behavior: smooth;
-  }
-  body,
-  p {
-    font-family: "Lato", sans-serif;
-  }
-  h2 {
-    font-family: SuvinilNormal
   }
 `;

@@ -1,8 +1,8 @@
 import React from 'react';
 import Menu from 'components/presentation/Menu';
 
-const Home = () => (
+const Admins = () => (
   <Menu />
 );
 
-export default Home;
+export default Admins;
