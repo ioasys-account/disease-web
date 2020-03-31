@@ -5,8 +5,8 @@ const urls = {
     PROFILE: '/profile',
     DOCTORS: '/doctors',
     CONDITIONS: '/conditions',
-    SYMPTOMS: 'symptoms',
-    ADMINS: 'admins',
+    SYMPTOMS: '/symptoms',
+    ADMINS: '/admins',
   },
   LINKS: {
     APP: '/',
@@ -14,8 +14,8 @@ const urls = {
     PROFILE: '/profile',
     DOCTORS: '/doctors',
     CONDITIONS: '/conditions',
-    SYMPTOMS: 'symptoms',
-    ADMINS: 'admins',
+    SYMPTOMS: '/symptoms',
+    ADMINS: '/admins',
   },
 };
 
