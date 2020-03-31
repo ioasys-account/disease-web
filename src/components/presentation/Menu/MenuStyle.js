@@ -20,11 +20,8 @@ export const Container = styled.div`
   margin-bottom: 10px;
 `;
 
-export const UserNameContainer = styled.div`
-  /* height: 26px; */
-  margin-left: 16px;
-  /* margin-right: 92px;
-  margin-top: 104px; */
+export const UserNameContainer = styled.div`  
+  margin-left: 16px;  
   span{
     font-style: normal;
     font-weight: 500;

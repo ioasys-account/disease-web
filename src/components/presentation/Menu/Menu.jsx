@@ -15,7 +15,6 @@ import {
 } from './MenuStyle';
 
 const Menu = () => {
-  const [activeLink, setActiveLink] = useState('Inicial');
   const [userName, setUsername] = useState('José Eustáquio');
   const dispatch = useDispatch();
   const materialStyles = makeStyles({
@@ -27,10 +26,6 @@ const Menu = () => {
         paddingLeft: 28,
         fontWeight: 500,
         lineHeight: '30px',
-        '&:first-child': {
-          backgroundColor: 'rgba(204, 54, 50, 0.1)',
-          color: '#CC3632',
-        },
         '&:hover': {
           backgroundColor: 'rgba(204, 54, 50, 0.1)',
           color: '#CC3632',
@@ -103,7 +98,7 @@ const Menu = () => {
               <ListItem
                 key={label}
                 value={label}
-                selected={label === activeLink}
+                variant="menu"
               >
                 <LinkCustom route={link}>{label}</LinkCustom>
               </ListItem>
