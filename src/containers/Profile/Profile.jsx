@@ -1,8 +1,14 @@
 import React from 'react';
 import Menu from 'components/presentation/Menu';
+import PageHeader from 'components/core/PageHeader';
 
 const Profile = () => (
-  <Menu />
+  <>
+    <PageHeader
+      title="Perfis"
+    />
+    <Menu />
+  </>
 );
 
 export default Profile;
