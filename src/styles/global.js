@@ -34,11 +34,4 @@ export default createGlobalStyle`
   html{
     scroll-behavior: smooth;
   }
-  body,
-  p {
-    font-family: "Lato", sans-serif;
-  }
-  h2 {
-    font-family: SuvinilNormal
-  }
 `;

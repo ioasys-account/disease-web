@@ -20,6 +20,7 @@ const Menu = () => {
   const materialStyles = makeStyles({
     root: {
       display: 'flex',
+      width: '100%',
       '& .MuiListItem-gutters': {
         fontSize: 14,
         paddingLeft: 28,
@@ -29,6 +30,13 @@ const Menu = () => {
           backgroundColor: 'rgba(204, 54, 50, 0.1)',
           color: '#CC3632',
         },
+      },
+      '& .MuiDrawer-docked': {
+        width: '100%',
+        backgroundColor: 'red',
+      },
+      '& .MuiDrawer-paper': {
+        width: '260px',
       },
     },
   })();
