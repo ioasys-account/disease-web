@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { makeStyles, lighten } from '@material-ui/core/styles';
 import {
-  Toolbar, Typography, Tooltip,
-  IconButton,
+  Toolbar, Typography, Tooltip, IconButton,
 } from '@material-ui/core';
 import FilterListIcon from '@material-ui/icons/FilterList';
 
@@ -27,16 +26,21 @@ const TableToolbar = ({ numSelected }) => {
     title: {
       fontWeight: 'bold',
       flex: '1 1 100%',
+      color: '#CC3632',
     },
   }))();
 
   return (
-    <Toolbar
-      className={classNames(classes.root, {
-        [classes.highlight]: numSelected > 0,
-      })}
-    >
-      {numSelected > 0 ? (
+    <Toolbar className={classNames(classes.root, classes.highlight)}>
+      <Typography
+        className={classes.title}
+        variant="h5"
+        id="tableTitle"
+        component="div"
+      >
+        Perfis Cadastrados
+      </Typography>
+      {numSelected > 0 && (
         <Typography
           className={classes.title}
           color="inherit"
@@ -47,17 +51,7 @@ const TableToolbar = ({ numSelected }) => {
           {' '}
           {numSelected}
         </Typography>
-      ) : (
-        <Typography
-          className={classes.title}
-          variant="h5"
-          id="tableTitle"
-          component="div"
-        >
-          Perfis Cadastrados
-        </Typography>
       )}
-
       <Tooltip title="Filter list">
         <IconButton aria-label="filter list">
           <FilterListIcon />
