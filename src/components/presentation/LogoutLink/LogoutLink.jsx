@@ -27,7 +27,7 @@ const LogoutLink = ({ route, logoutUser, history }) => {
 
 LogoutLink.propTypes = {
   route: PropTypes.string.isRequired,
-  logoutUser: PropTypes.string.isRequired,
+  logoutUser: PropTypes.func.isRequired,
   history: PropTypes.shape({ push: PropTypes.func }).isRequired,
 };
 
