@@ -2,7 +2,6 @@ import React from 'react';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import DeleteIcon from '@material-ui/icons/Delete';
 import { ContainerForm } from './CondFormStyle';
 
 
@@ -28,21 +27,11 @@ const ConditionsForm = () => {
         <div className={useStyles.root}>
           <Button
             variant="contained"
-            color="secondary"
+            color="primary"
             className={useStyles.button}
             startIcon={<AddCircleOutlineIcon />}
           >
             Adicionar
-          </Button>
-        </div>
-        <div className={useStyles.root}>
-          <Button
-            variant="contained"
-            color="secondary"
-            className={useStyles.button}
-            startIcon={<DeleteIcon />}
-          >
-            Remover
           </Button>
         </div>
       </ContainerForm>
