@@ -12,7 +12,6 @@ import {
 } from '@material-ui/core';
 import ContainerDefault from 'components/core/ContainerDefault';
 import Menu from 'components/presentation/Menu';
-import PageHeader from 'components/core/PageHeader';
 import TableToolbar from 'components/core/TableToolbar';
 import TableHeader from 'components/core/TableHeader';
 
@@ -131,9 +130,6 @@ const Profile = () => {
 
   return (
     <ContainerDefault>
-      <PageHeader
-        title="Perfis"
-      />
       <Menu />
       <div className={classes.root}>
         <Paper className={classes.paper}>

@@ -4,10 +4,8 @@ import PageHeader from 'components/core/PageHeader';
 
 const Symptoms = () => (
   <>
-    <PageHeader
-      title="Sintomas"
-    />
     <Menu />
+    <PageHeader title="Sintomas Cadastrados" />
   </>
 );
 

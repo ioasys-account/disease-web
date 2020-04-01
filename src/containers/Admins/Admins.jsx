@@ -4,10 +4,8 @@ import PageHeader from 'components/core/PageHeader';
 
 const Admins = () => (
   <>
-    <PageHeader
-      title="Administradores"
-    />
     <Menu />
+    <PageHeader title="Administradores" />
   </>
 );
 
