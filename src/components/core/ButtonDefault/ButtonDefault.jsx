@@ -1,10 +1,40 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
 
-export default function ButtonDefault({ value, onClick, color }) {
+const ButtonDefault = ({
+  value, onClick, color, size,
+}) => {
+  const materialStyles = makeStyles({
+    root: {
+      color,
+      borderColor: color,
+    },
+  })();
+
   return (
-    <Button variant="outlined" color={color || 'primary'} onClick={onClick}>
+    <Button
+      variant="outlined"
+      onClick={onClick}
+      classes={materialStyles}
+      size={size}
+    >
       {value}
     </Button>
   );
-}
+};
+
+ButtonDefault.propTypes = {
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  onClick: PropTypes.func.isRequired,
+  color: PropTypes.string,
+  size: PropTypes.string,
+};
+
+
+ButtonDefault.defaultProps = {
+  color: '#DA1F26',
+  size: 'medium',
+};
+export default ButtonDefault;

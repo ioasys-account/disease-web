@@ -4,17 +4,17 @@ import ButtonDefault from 'components/core/ButtonDefault';
 import CoronaImg from 'assets/img/corona.png';
 import {
   Container, Body, SubmitRow, ImgLogo,
-} from './stylesAuth';
+} from './AuthPresentationStyle';
 
 export default function Auth({ requestAuthAuthentication }) {
   return (
     <Body>
       <Container>
         <ImgLogo src={CoronaImg} />
-        <TextFieldInput label="Login" fullWidth />
+        <TextFieldInput label="Email" fullWidth />
         <TextFieldInput label="Senha" fullWidth />
         <SubmitRow>
-          <ButtonDefault onClick={requestAuthAuthentication} value="Login" />
+          <ButtonDefault onClick={requestAuthAuthentication} value="Login" size="large" />
         </SubmitRow>
       </Container>
     </Body>
