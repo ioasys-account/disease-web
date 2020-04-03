@@ -23,6 +23,10 @@ const conditions = [
     id: 2,
     name: 'Febre',
   },
+  {
+    id: 3,
+    name: 'Asma',
+  },
 ];
 const headCells = [
   {
@@ -44,7 +48,6 @@ const ConditionsList = () => {
         marginTop: 50,
       },
       '& .MuiButton-root': {
-        width: 100,
         marginRight: -100,
       },
     },
@@ -65,12 +68,6 @@ const ConditionsList = () => {
       top: 20,
       width: 1,
     },
-    button: {
-      '& .MuiButton-root': {
-        width: 0,
-      },
-    },
-
   })();
   const styleRow = makeStyles({
     root: {

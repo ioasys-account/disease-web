@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { routerMiddleware } from 'connected-react-router';
@@ -11,7 +12,10 @@ const middlewares = [sagaMiddleware, routerMiddleware(history)];
 export const store = createStore(
   Reducers(history),
   reduxDevTools
-    ? compose(applyMiddleware(...middlewares), reduxDevTools)
+    ? compose(
+      applyMiddleware(...middlewares),
+      reduxDevTools,
+    )
     : compose(applyMiddleware(...middlewares)),
 );
 sagaMiddleware.run(Sagas);

@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import { ContainerForm } from './CondFormStyle';
 
 
-const ConditionsForm = () => {
+const ConditionsForm = (handleAdd) => {
   const useStyles = makeStyles({
     root: {
       '& .MuiButton-root': {
@@ -30,6 +30,8 @@ const ConditionsForm = () => {
             color="primary"
             className={useStyles.button}
             startIcon={<AddCircleOutlineIcon />}
+            size="small"
+            onClick={handleAdd}
           >
             Adicionar
           </Button>
